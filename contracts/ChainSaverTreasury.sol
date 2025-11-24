@@ -1,47 +1,16 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-/**
- * @title ChainSaver Treasury
- * @dev A decentralized treasury management system for savings and fund allocation
- */
-contract ChainSaverTreasury {
-    
-    // State variables
+State variables
     address public owner;
     uint256 public totalDeposits;
     uint256 public totalWithdrawals;
     uint256 public savingsGoal;
     bool public emergencyMode;
     
-    // Structs
-    struct Deposit {
-        uint256 amount;
-        uint256 timestamp;
-        bool isActive;
-    }
-    
-    struct Beneficiary {
-        address beneficiaryAddress;
-        uint256 allowance;
-        bool isActive;
-    }
-    
-    // Mappings
+    Mappings
     mapping(address => Deposit[]) public userDeposits;
     mapping(address => uint256) public userBalances;
     mapping(address => Beneficiary) public beneficiaries;
     
-    // Events
-    event DepositMade(address indexed user, uint256 amount, uint256 timestamp);
-    event WithdrawalMade(address indexed user, uint256 amount, uint256 timestamp);
-    event BeneficiaryAdded(address indexed beneficiary, uint256 allowance);
-    event BeneficiaryRemoved(address indexed beneficiary);
-    event SavingsGoalSet(uint256 newGoal);
-    event EmergencyModeToggled(bool status);
-    event FundsAllocated(address indexed beneficiary, uint256 amount);
-    
-    // Modifiers
+    Modifiers
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner can call this function");
         _;
@@ -193,3 +162,6 @@ contract ChainSaverTreasury {
         totalDeposits += msg.value;
     }
 }
+// 
+End
+// 
