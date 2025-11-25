@@ -157,11 +157,8 @@ State variables
         payable(owner).transfer(balance);
     }
     
-    // Fallback function to receive ether
-    receive() external payable {
-        totalDeposits += msg.value;
-    }
-}
+    End
+// 
 // 
 End
 // 
